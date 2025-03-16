@@ -13,11 +13,13 @@ const setColorMode = () => {
 };
 
 const checkMode = () => {
-    if (window.matchMedia("(prefers-color-scheme: light)").matches){
-        lightButton.click();
-    }
-    else if (window.matchMedia("(prefers-color-scheme: dark)").matches){
-        darkButton.click();
+    if (localStorage.getItem('colorMode') == null) {
+        if (window.matchMedia("(prefers-color-scheme: light)").matches){
+            lightButton.click();
+        }
+        else if (window.matchMedia("(prefers-color-scheme: dark)").matches){
+            darkButton.click();
+        }
     }
 }
 
